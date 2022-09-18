@@ -2,12 +2,9 @@
 
 # Press Shift+F10 to execute it or replace it with your code.
 # Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-import json
 
-from LotteryUtils.dealGet import dealLottery
+from dealGet import dealLottery
 import time
-import requests
-
 
 lottery_dict = {'2': 'https://api.bilibili.com/x/lottery/win/list?sid=newLottery_b8628b8c-1472-11ed-9251-a4ae12675bc2',
                 '3': 'https://api.bilibili.com/x/lottery/win/list?sid=newLottery_bc4ea594-038f-11ed-9251-a4ae12675bc2',
@@ -51,7 +48,7 @@ token = 'http://www.pushplus.plus/send/f6be2c66b99d4e78bd1811bc80814d79'
 if __name__ == '__main__':
 
     while True:
-        time.sleep(20)
+        time.sleep(10)
         dealLottery(lottery_dict,token)
     # requests.get('http://www.pushplus.plus/send/f6be2c66b99d4e78bd1811bc80814d79',
     #              params={'title': 'x + active_name',

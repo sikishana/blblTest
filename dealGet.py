@@ -3,8 +3,8 @@ import json
 
 import requests
 
-from LotteryUtils.proIni import opIO, closeIO, rwTime
-from LotteryUtils.timeTrans import timeTrans
+from proIni import opIO, closeIO, rwTime
+from timeTrans import timeTrans
 
 
 # dict:url集合
@@ -12,9 +12,9 @@ from LotteryUtils.timeTrans import timeTrans
 def dealLottery(dict, token):
     #打开io流
     cfp = opIO()
+    #x：key str：value
     for x, str in dict.items():
         if str != '':
-
             s = requests.get(url=str)
             js_dict = json.loads(s.text)
             if 'data' not in js_dict:
@@ -35,6 +35,7 @@ def dealLottery(dict, token):
                 lottery_ts = target['ctime']
 
                 msg_return = '时间:' + c_time + '\n' + ' 货:' + gift_name + '\n' + 'U:' + gift_owner
+
                 if rwTime(cfp, x, lottery_ts):
                     print('success')
                     print('title:' + active_name + x)

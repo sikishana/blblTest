@@ -5,9 +5,8 @@ def opIO():
     cfp = configparser.ConfigParser()
     cfp.read('yoyo.ini')
     return cfp
+
 #cfp：文件流，key：就是key，cop——time最新中奖的时间戳
-
-
 def rwTime(cfp,key,cop_time):
 
     org_time = cfp.getint('title', key)
